@@ -10,7 +10,7 @@ namespace Battleship.Domain.Log
     /// </summary>
     public class PlayerShotLogItem : GameLogItem
     {
-        private const string PlayerChoiceGameMessage = "Player{0} shoots at {1}{2}!";
+        private const string PlayerChoiceGameMessage = "Player {0} shoots at {1}{2}!";
 
         /// <summary>
         /// X position that the player shot at.
@@ -22,10 +22,10 @@ namespace Battleship.Domain.Log
         /// </summary>
         public int Y { get; set; }
 
-        public PlayerShotLogItem(PlayersEnum player, int x, int y)
+        public PlayerShotLogItem(PlayerSrouceEnum player, int x, int y)
         {
-            var symbol = player == PlayersEnum.PlayerA ? "A" : "B";
-            Source = player == PlayersEnum.PlayerA ? GameLogItemSource.PlayerA : GameLogItemSource.PlayerB;
+            var symbol = player == PlayerSrouceEnum.PlayerA ? "A" : "B";
+            Source = (GameLogItemSource)player;
             Message = string.Format(PlayerChoiceGameMessage, symbol, NumToBoardLetter(x), y);
             X = x;
             Y = y;

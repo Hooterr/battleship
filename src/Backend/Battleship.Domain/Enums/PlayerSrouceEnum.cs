@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 namespace Battleship.Domain.Enums
 {
     /// <summary>
-    /// Represents each player in the game
+    /// Represents a source of a game action
     /// </summary>
-    public enum PlayersEnum
+    public enum PlayerSrouceEnum
     {
         PlayerA,
 

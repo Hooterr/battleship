@@ -56,8 +56,8 @@ namespace Battleship.Domain
             // Main loop
             while (!gameFinished)
             {
-                ConductRound(conductingPlayer: _player, player: PlayersEnum.PlayerA, enemyPlayerGrid: Game.PlayerB);
-                ConductRound(conductingPlayer: _player, player: PlayersEnum.PlayerB, enemyPlayerGrid: Game.PlayerA);
+                ConductRound(conductingPlayer: _player, playerSrouce: PlayerSrouceEnum.PlayerA, enemyPlayerGrid: Game.PlayerB);
+                ConductRound(conductingPlayer: _player, playerSrouce: PlayerSrouceEnum.PlayerB, enemyPlayerGrid: Game.PlayerA);
 
                 if (_gameEndingRule.HasEnded(Game))
                     break;
@@ -67,7 +67,7 @@ namespace Battleship.Domain
         }
 
 
-        private void ConductRound(IPlayer conductingPlayer, PlayersEnum player, GameGrid enemyPlayerGrid)
+        private void ConductRound(IPlayer conductingPlayer, PlayerSrouceEnum playerSrouce, GameGrid enemyPlayerGrid)
         {
             var canContinue = true;
 
@@ -87,11 +87,11 @@ namespace Battleship.Domain
 
                 canContinue = hit && anyShipsLeft;
 
-                Log(player, x, y);
+                Log(playerSrouce, x, y);
             }
         }
 
-        private void Log(PlayersEnum player, int x, int y)
+        private void Log(PlayerSrouceEnum player, int x, int y)
         {
             _playerMoves.Add(new PlayerShotLogItem(player, x, y));
         }
