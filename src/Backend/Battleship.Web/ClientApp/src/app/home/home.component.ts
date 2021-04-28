@@ -74,7 +74,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
       if (this.currentMove >= this.game.moves.length) {
         if (this.game.gamerResult !== GameResult.Draw)
         {
-          this.logs.push(`Player ${this.game.gamerResult == GameResult.PlayerAWon ? 'A': 'B'} won the game!.`)
+          this.logs.push(`Player ${this.game.gamerResult == GameResult.PlayerAWon ? 'A': 'B'} won the game!`)
         }
         else {
           this.logs.push('Game ends in a draw.');
