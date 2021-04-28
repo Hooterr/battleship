@@ -6,7 +6,7 @@ Gra jest reprezenstowana przez
 + GameGrid, każdego z graczy. GameGrid jest strukturą 2D złożoną z GameGridCell. Każda cella zawiera swój State oraz informacją jaki statek się na niej znajduje. State zawiera informację czy statek się na nim znajdujący został trafiony, lub czy ta komórka jest już trafiona-zpudłowana, lub w ogóle jeszcze nieodkryta.
 + Size, czyli rozmiar planszy.
 
-GameHost ma za zadanie przeprowadzić daną mu grę. Korzysta on z zasad gry, o których jedynie musi wiedzieć jaki interfejs implementują. Ma to na celu umożliwić unit testing i dodawnia nowych reguł. 
+GameHost ma za zadanie przeprowadzić daną mu grę. Korzysta on z zasad gry, o których jedynie musi wiedzieć jaki interfejs implementują. Ma to na celu umożliwić unit testing i dodawnie nowych reguł. 
 
 GameFeed to logi i informacje jakie poszczególne ruchy wykonał każdy z graczy.
 
