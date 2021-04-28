@@ -1,0 +1,66 @@
+<mat-grid-list cols="2" rowHeight="250px">
+  <mat-grid-tile>
+    <div>
+      <mat-slider min="10" max="20" step="1" [(value)]="size"></mat-slider>
+      <p>Board size: {{size}}</p>
+      <button mat-raised-button (click)="newGame()">New game</button>
+      <button mat-raised-button (click)="play_pause()" [disabled]="!game">
+        <mat-icon>{{playing ? "pause" : "play_arrow"}}</mat-icon>
+      </button>
+      <p *ngIf="game">Current move: {{currentMove}}/{{game.moves.length}}</p>
+    </div>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <ol #scroll>
+      <li *ngFor="let msg of logs" #item>
+        {{msg}}
+      </li>
+    </ol>
+  </mat-grid-tile>
+</mat-grid-list>
+<mat-grid-list cols="2">
+  <mat-grid-tile>
+    <div *ngIf="game">
+      <div>
+        <p class="center">Player A</p>
+      </div>
+      <table>
+        <tbody *ngIf="game">
+          <tr>
+            <td class="no-border"></td>
+            <td class="only-bottom-border" *ngFor="let tmp of game.boardA; let i = index">{{i+1}}</td>
+          </tr>
+          <tr *ngFor="let row of game.boardA; let rowIndex = index">
+            <td class="only-left-border">{{stringRef.fromCharCode(65 + rowIndex)}}</td>
+            <td *ngFor="let cell of row" [ngClass]="{
+            'occupied': cell.isOccupied === true,
+            'hit': cellState.Hit === cell.state
+          }">{{cell.state === cellState.Miss ? "•" : ""}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <div *ngIf="game">
+      <div>
+        <p class="center">Player B</p>
+      </div>
+      <table>
+        <tbody>
+          <tr>
+            <td class="no-border"></td>
+            <td class="only-bottom-border" *ngFor="let tmp of game.boardB; let i = index">{{i+1}}</td>
+          </tr>
+          <tr *ngFor="let row of game.boardB; let rowIndex = index">
+            <td class="only-left-border">{{stringRef.fromCharCode(65 + rowIndex)}}</td>
+            <td *ngFor="let cell of row" [ngClass]="{
+            'occupied': cell.isOccupied === true,
+            'hit': cellState.Hit === cell.state
+          }">{{cell.state === cellState.Miss ? "•" : ""}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </mat-grid-tile>
+</mat-grid-list>
