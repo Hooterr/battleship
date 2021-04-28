@@ -18,3 +18,6 @@ Zasymulowana gra zwracana jest przez API. Obiekt taki zawiera początkowe rozmie
 Dane te pokazywane są we froncie w Angularze jako taki mini film, który można nawet pauzować :)
 
 We froncie trzeba by było przede wszystkim podzielić poszczególne segmenty na osobne komponenty, ale z braku czasu nie udało mi się tego zrobić :(
+
+
+![image](https://user-images.githubusercontent.com/28758721/116444170-bd34b780-a854-11eb-8f53-9435c1e231af.png)
